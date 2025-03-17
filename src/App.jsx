@@ -1,39 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import PostCard from "./components/postcard";
+import "./App.css";
 
-function App() {
 
-  const initialPosts = [
-    {
-      id: 1,
-      profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
-      content: 'This is my first post!',
-      isLiked: false,
-    },
-    {
-      id: 2,
-      profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
-      content: 'Loving this social media app.',
-      isLiked: true,
-    },
-    {
-      id: 3,
-      profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
-      username: 'charlie',
-      content: 'Just another day...',
-      isLiked: false,
-    },
-  ];
+const posts = [
+  {
+    username: "JohnDoe",
+    profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
+    content: "Had a great day at the beach! 🌊"
+  },
+  {
+    username: "JaneSmith",
+    profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
+    content: "Loving the new book I just started! 📖"
+  },
+  {
+    username: "MikeJohnson",
+    profilePic: "https://randomuser.me/api/portraits/men/3.jpg",
+    content: "Working on a new project, super excited! 🚀"
+  }
+];
 
+const App = () => {
   return (
-    <>
-      
-    </>
-  )
-}
+    <div>
+      <h1>Social Media Feed</h1>
+      <div className="post-list">
+        {posts.map((post, index) => (
+          <PostCard key={index} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;
